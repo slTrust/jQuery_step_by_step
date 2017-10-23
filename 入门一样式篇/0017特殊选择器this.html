@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="./jquery.js"></script>
+</head>
+
+<body>
+    <h2>特殊选择器this</h2>
+
+    <p id="test1">点击测试：通过原生DOM处理</p>
+    
+    <p id="test2">点击测试：通过原生jQuery处理</p>
+    <textarea  style="width:100%;height:600px;font-size:22px;">
+        相信很多刚接触jQuery的人，很多都会对$(this)和this的区别模糊不清，那么这两者有什么区别呢？
+        
+        this是JavaScript中的关键字，指的是当前的上下文对象，简单的说就是方法/属性的所有者
+        
+        下面例子中，aaa是一个对象，拥有name属性与getName方法,在getName中this指向了所属的对象imooc
+        
+        var aaa = {
+            name:"aaa",
+            getName:function(){
+                //this,就是aaa对象
+                return this.name;
+            }
+        }
+        aaa.getName(); // aaa
+        当然在JavaScript中this是动态的，也就是说这个上下文对象都是可以被动态改变的(可以通过call,apply等方法)，具体的大家可以查阅相关资料
+        
+        同样的在DOM中this就是指向了这个html元素对象，因为this就是DOM元素本身的一个引用
+        
+        假如给页面一个P元素绑定一个事件:
+        
+        p.addEventListener('click',function(){
+            //this === p
+            //以下两者的修改都是等价的
+            this.style.color = "red";
+            p.style.color = "red";
+        },false);
+        通过addEventListener绑定的事件回调中，this指向的是当前的dom对象，所以再次修改这样对象的样式，只需要通过this获取到引用即可
+        
+         this.style.color = "red"
+        但是这样的操作其实还是很不方便的，这里面就要涉及一大堆的样式兼容，如果通过jQuery处理就会简单多了，我们只需要把this加工成jQuery对象
+        
+        换成jQuery的做法：
+        
+        $('p').click(function(){
+            //把p元素转化成jQuery的对象
+            var $this= $(this) 
+            $this.css('color','red')
+        })
+        通过把$()方法传入当前的元素对象的引用this，把这个this加工成jQuery对象，我们就可以用jQuery提供的快捷方法直接处理样式了
+    </textarea>
+    <script type="text/javascript">
+        var p1 = document.getElementById('test1')
+        p1.addEventListener('click',function(){
+            //直接通过dom的方法改变颜色
+            this.style.color = "red"; 
+        },false);
+    </script>
+
+    <script type="text/javascript">
+        $('#test2').click(function(){
+            //通过包装成jQuery对象改变颜色
+            $(this).css('color','blue');
+        })
+    </script>
+
+</body>
+
+</html>
