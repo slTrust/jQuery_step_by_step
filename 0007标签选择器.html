@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            height: 200px;
+            width: 200px;
+            background:#ccc;
+        }
+        p{background: red;width:100px;height:100px;}
+    </style>
+</head>
+<body>
+    <h2>标签选择器 getElementsByTagName('标签名')   没有兼容问题</h2>
+    <p>jq的标签选择器实现就是用的此方法</p>
+    <div>
+        <p>1111111</p>
+    </div>
+    <div>
+        <p>2222222</p>
+    </div>
+    <div>
+        <p>3333333</p>
+    </div> 
+ 
+    <script src="./jquery.js"></script>
+    <script>
+        var aDiv = document.getElementsByTagName('div');
+        for(var i=0,len = aDiv.length;i<len;i++){
+            aDiv[i].style.border = '3px solid #000';
+        }
+
+        //jq 标签选择器
+        var aP = $('p');
+        aP.css('border','3px solid blue');
+    </script>
+</body>
+</html>

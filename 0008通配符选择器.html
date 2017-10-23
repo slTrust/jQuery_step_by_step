@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {padding: 0; margin: 0;}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <p>11111</p>
+    </div>
+    <ul>
+        <li>aa</li>
+        <li>bb</li>
+        <li>cc</li>
+    </ul>
+    <p>我是段落</p>
+    <textarea name="" id="" style="width:100%;height:500px;font-size:22px;">
+            在CSS中，经常会在第一行写下这样一段样式
+            
+            * {padding: 0; margin: 0;}
+            通配符*意味着给所有的元素设置默认的边距。jQuery中我们也可以通过传递*选择器来选中文档页面中的元素
+            
+            描述：
+            
+            $( "*" )
+            抛开jQuery，如果要获取文档中所有的元素，通过document.getElementsByTagName()中传递"*"同样可以获取到
+            
+            不难发现，id、class、tag都可以通过原生的方法获取到对应的节点，但是我们还需要考虑一个兼容性的问题，我这里顺便提及一下，比如:
+            
+        1.IE会将注释节点实现为元素，所以在IE中调用getElementsByTagName里面会包含注释节点，这个通常是不应该的
+        2.getElementById的参数在IE8及较低的版本不区分大小写
+        3.IE7及较低的版本中，表单元素中，如果表单A的name属性名用了另一个元素B的ID名并且A在B之前，那么getElementById会选中A
+        3.IE8及较低的版本，浏览器不支持getElementsByClassName
+    </textarea>
+    <script src="./jquery.js"></script>
+    <script>
+        //dom获取页面所有元素
+        var eles = document.getElementsByTagName('*');
+        //jq 
+        var eles2 = $('*');
+
+        //原生和jq方法比较  
+        // 代表数据和类型都一样
+        if(eles.length === eles2.length){
+            eles2.css('border','1px solid red')
+        }
+
+    </script>
+</body>
+</html>

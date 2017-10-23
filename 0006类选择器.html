@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        li{
+            height: 50px;
+            width: 200px;
+            background:red;
+        }
+    </style>
+</head>
+<body>
+    <h1>li默认红色</h1>
+    <h2>原生类选择器</h2>
+    <ul>
+       <li class="box"></li>
+       <li></li>
+       <li class="box"></li>
+       <li></li>
+       <li class="box"></li>
+       <li></li> 
+    </ul>
+    <hr>
+    <h2>jq类选择器</h2>
+    <ul>
+        <li class="box2"></li>
+        <li></li>
+        <li class="box2"></li>
+        <li></li>
+        <li class="box2"></li>
+        <li></li> 
+    </ul>
+    <h3>jQuery除了选择上的简单，而且没有再次使用循环处理</h3>
+    <p>原理：对于类选择器，如果浏览器支持，jQuery使用JavaScript的原生getElementsByClassName()函数来实现的</p>
+    <p>
+        不难想到$(".box2").css()方法内部肯定是带了一个隐式的循环处理，<br>
+        所以使用jQuery选择节点，不仅仅只是选择上的简单，同时还增加很多关联的便利操作，后续我们还会慢慢的学到其他的优势。
+    </p>
+    <p>注意：ie8以及以下不支持  document.getElementsByClassName 方法</p>
+    <script src="./jquery.js"></script>
+    <script>
+        //原生    
+        var aLi = document.getElementsByClassName('box');
+        for(var i=0,len=aLi.length;i<len;i++){
+            aLi[i].style.background = 'pink';
+        }
+
+        //jq
+        var aLi2 = $('.box2');
+        aLi2.css('background','blue');
+        
+    </script>
+</body>
+</html>

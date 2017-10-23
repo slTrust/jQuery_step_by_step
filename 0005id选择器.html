@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+        <p>原生对象操作dom</p>
+    </div>
+    <div id="box2">
+        <p>jq操作dom</p>
+    </div>    
+    <p>
+        id选择器也是基本的选择器，jQuery内部使用JavaScript函数document.getElementById()来处理ID的获取。<br>
+        原生语法的支持总是非常高效的，所以在操作DOM的获取上，如果能采用id的话尽然考虑用这个选择器
+    </p>
+    <p>
+        id是唯一的，每个id值在一个页面中只能使用一次。 <br>
+        如果多个元素分配了相同的id，将只匹配该id选择集合的第一个DOM元素。<br>
+        但这种行为不应该发生;有超过一个元素的页面使用相同的id是无效的
+    </p>
+    <script src="./jquery.js"></script>
+    <script>
+        var oDiv = document.getElementById('box');
+        oDiv.style.background =  '#ccc';
+
+        //jq操作dom
+        var oDiv2 = $('#box2');
+        oDiv2.css('background','pink')
+
+    </script>
+</body>
+</html>
