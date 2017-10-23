@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="./jquery.js"></script>
+    <style>
+    .left,
+    .right {
+        width: 300px;
+        height: 120px;
+    }
+    
+    .left div,
+    .right div {
+        width: 100px;
+        height: 90px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+    }
+    
+    .left div {
+        background: #bbffaa;
+    }
+    
+    .right div {
+        background: yellow;
+    }
+    textarea{
+        width:100%;
+        height: 500px;
+        font-size: 22px;
+    }
+    </style>
+</head>
+
+<body>
+    <h2>动态创建元素节点</h2>
+    <button>点击通过jQuery动态创建元素节点</button>
+    <script type="text/javascript">
+    var $body = $('body');
+    $body.on('click', function() {
+        //通过jQuery生成div元素节点
+        var div = $("<div class='right'><div class='aaron'>动态创建DIV元素节点</div></div>")
+        $body.append(div)
+    })
+
+
+
+    // var body = document.querySelector('body');
+
+    // document.addEventListener('click',function(){
+
+    //  //创建2个div元素
+    //  var rightdiv = document.createElement('div')
+    //  var rightaaron = document.createElement("div");
+
+    //  //给2个div设置不同的属性
+    //  rightdiv.setAttribute('class', 'right')
+    //  rightaaron.className = 'aaron'
+    //  rightaaron.innerHTML = "动态创建DIV元素节点";
+
+    //  //2个div合并成包含关系
+    //  rightdiv.appendChild(rightaaron)
+
+    //  //绘制到页面body
+    //  body.appendChild(rightdiv)
+
+    // },false)
+    </script>
+    <textarea>
+        创建元素节点：
+        
+        可以有几种方式，后面会慢慢接触。常见的就是直接把这个节点的结构给通过HTML标记字符串描述出来，通过$()函数处理，$("html结构")
+        
+        $("<div></div>")
+        创建为本节点：
+        
+        与创建元素节点类似，可以直接把文本内容一并描述
+        
+        $("<div>我是文本节点</div>")
+        创建为属性节点：
+        
+        与创建元素节点同样的方式
+        
+        $("<div id='test' class='aaron'>我是文本节点</div>")
+        我们通过jQuery把上一届的代码改造一下，如右边代码所示
+        
+        一条一句就搞定了，跟写HTML结构方式是一样的
+        
+        $("<div class='right'><div class='aaron'>动态创建DIV元素节点</div></div>")
+        这就是jQuery创建节点的方式，让我们保留HTML的结构书写方式，非常的简单、方便和灵活
+    </textarea>
+</body>
+
+</html>
