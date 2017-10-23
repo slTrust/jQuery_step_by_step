@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>第一个简单的jQuery程序</title>
+    <style>
+         div{
+            font-size:18px;
+            text-align:center;
+            border:solid 1px #888;
+            margin:0 auto;
+        }
+        p{
+            height: 300px;
+            width: 300px;
+            background:green;
+            margin:0 auto;
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <p></p>
+    <script src="./jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('div').html('hello WORLD')
+            $('p').html('$(document).ready 的作用是等页面的文档（document）中的节点都加载完毕后，再执行后续的代码，'+
+            '因为我们在执行代码的时候，可能会依赖页面的某一个元素，我们要确保这个元素真正的的被加载完毕后才能正确的使用。');
+        });
+        /*
+        代码分析：
+            $(document).ready 的作用是等页面的文档（document）中的节点都加载完毕后，再执行后续的代码，
+            因为我们在执行代码的时候，可能会依赖页面的某一个元素，我们要确保这个元素真正的的被加载完毕后才能正确的使用。
+        */
+        
+    </script>
+</body>
+</html>

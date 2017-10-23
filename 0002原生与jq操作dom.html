@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="box1"></p>
+    <p id="box2"></p>
+    <script src="./jquery.js"></script>
+    <script>
+        window.onload = function(){
+            var oBox1 = document.getElementById('box1');
+            oBox1.innerHTML = '使用原生方法操作dom节点';
+            oBox1.style.color = 'red';
+        }
+    </script>
+    <script>
+        $(document).ready(function(){
+            $('#box2').html('use jquery').css('color','red');
+        });
+    </script>
+</body>
+</html>

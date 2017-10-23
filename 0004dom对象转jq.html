@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div{
+            height:100px;width:100px;background:#ccc;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script src="./jquery.js"></script>
+    <script>
+       var oDiv = document.getElementById('box');
+       //转换jq对象
+       var jqDiv = $(oDiv);
+       jqDiv.css('background','pink');
+    </script>
+</body>
+</html>
