@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <script src="./jquery.js"></script>
+    <style>
+    .left div,
+    .right div {
+        width: 100px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        border: 1px solid #ccc;
+        background: #bbffaa;
+    }
+    
+    .right div {
+        background: yellow;
+    }
+    
+    p {
+        border: 1px solid red;
+    }
+    
+    a {
+        border: 1px solid blue;
+    }
+    textarea{
+        width:100%;
+        height: 500px;
+        font-size: 22px;
+    }
+    </style>
+</head>
+
+<body>
+    <h2>DOM包裹wrap()方法</h2>
+    <div class="left">
+        <button class="aaron1">点击,通过wrap方法给p元素增加父容器div</button>
+        <button class="aaron2">点击,通过wrap的回调方法给a元素增加父容器div</div>
+    </div>
+    <div class="right">
+        <p>p元素</p>
+        <p>p元素</p>
+    </div>
+    <div class="left">
+        <a>a元素</a>
+        <a>a元素</a>
+    </div>
+    <script type="text/javascript">
+    $(".aaron1").on('click', function() {
+        //给所有p元素，增加父容器div
+        $('p').wrap('<div></div>')
+    })
+    </script>
+    <script type="text/javascript">
+    $(".aaron2").on('click', function() {
+        $('a').wrap(function() {
+            return '<div class="' + $(this).text() + '" />';
+        })
+    })
+    </script>
+    <textarea>
+        如果要将元素用其他元素包裹起来，也就是给它增加一个父元素，针对这样的处理，JQuery提供了一个wrap方法
+        
+        .wrap( wrappingElement )：在集合中匹配的每个元素周围包裹一个HTML结构
+        
+        简单的看一段代码：
+        
+        <p>p元素</p>
+        给p元素增加一个div包裹
+        
+        $('p').wrap('<div></div>')
+        最后的结构，p元素增加了一个父div的结构
+        
+        <div>
+            <p>p元素</p>
+        </div>
+        .wrap( function ) ：一个回调函数，返回用于包裹匹配元素的 HTML 内容或 jQuery 对象
+        
+        使用后的效果与直接传递参数是一样，只不过可以把代码写在函数体内部，写法不同而已
+        
+        以第一个案例为例：
+        
+        $('p').wrap(function() {
+            return '<div></div>';   //与第一种类似，只是写法不一样
+        })
+        注意：
+        
+        .wrap()函数可以接受任何字符串或对象，可以传递给$()工厂函数来指定一个DOM结构。
+        这种结构可以嵌套了好几层深，但应该只包含一个核心的元素。每个匹配的元素都会被这种结构包裹。该方法返回原始的元素集，以便之后使用链式方法。
+    </textarea>
+</body>
+
+</html>

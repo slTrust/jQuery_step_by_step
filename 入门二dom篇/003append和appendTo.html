@@ -41,7 +41,8 @@
     		//.appendTo()刚好相反，内容在方法前面，
     		//无论是一个选择器表达式 或创建作为标记上的标记
     		//它都将被插入到目标容器的末尾。
-    		$('<div class="appendTo">通过appendTo方法添加的元素</div>').appendTo($(".content"));
+            $('<div class="appendTo">通过appendTo方法添加的元素</div>').appendTo($(".content"));
+            
     	})
 
     </script>
@@ -61,6 +62,8 @@
         
         append()前面是被插入的对象，后面是要在对象内插入的元素内容
         appendTo()前面是要插入的元素内容，而后面是被插入的对象
+
+        有用之处就是》》链式操作时候的返回对象   appendTo返回的被添加元素   append返回的是 父容器
     </textarea>
 
 </body>
