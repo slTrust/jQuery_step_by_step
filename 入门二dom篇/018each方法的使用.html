@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title></title>
+    <style>
+    .left {
+        width: auto;
+        height: 150px;
+    }
+    
+    .left div {
+        width: 150px;
+        height: 120px;
+        padding: 5px;
+        margin: 5px;
+        float: left;
+        background: #bbffaa;
+        border: 1px solid #ccc;
+    }
+    textarea{
+        width:100%;
+        height: 500px;
+        font-size: 22px;
+    }
+    </style>
+    <script src="./jquery.js"></script>
+</head>
+
+<body>
+    <h2>each方法</h2>
+    <div class="left first-div">
+        <div class="div">
+            <ul>
+                <li>list item 1</li>
+                <li>list item 2</li>
+                <li>list item 3</li>
+            </ul>
+        </div>
+        <div class="div">
+            <ul>
+                <li>list item 4</li>
+                <li>list item 5</li>
+                <li>list item 6</li>
+            </ul>
+        </div>
+    </div>
+
+    <br/>
+    <button>点击：each方法遍历元素</button>
+    <button>点击：each方法回调判断</button>
+    <script type="text/javascript">
+    $("button:first").click(function() {
+        //遍历所有的li
+        //修改每个li内的字体颜色
+        $("li").each(function(index, element) {
+            $(this).css('color','red')
+        })
+
+    })
+    </script>
+    <script type="text/javascript">
+    $("button:last").click(function() {
+        //遍历所有的li
+        //修改偶数li内的字体颜色
+        $("li").each(function(index, element) {
+            if (index % 2) {
+                $(this).css('color','blue')
+            }
+        })
+    })
+    </script>
+    <textarea>
+        jQuery是一个合集对象，通过$()方法找到指定的元素合集后可以进行一系列的操作。比如我们操作$("li").css('') 给所有的li设置style值，因为jQuery是一个合集对象，所以css方法内部就必须封装一个遍历的方法，被称为隐式迭代的过程。要一个一个给合集中每一个li设置颜色，这里方法就是each
+        
+        .each() 方法就是一个for循环的迭代器，它会迭代jQuery对象合集中的每一个DOM元素。每次回调函数执行时，会传递当前循环次数作为参数(从0开始计数
+        
+        所以大体上了解3个重点：
+        
+        each是一个for循环的包装迭代器
+        each通过回调的方式处理，并且会有2个固定的实参，索引与元素
+        each回调方法中的this指向当前迭代的dom元素
+        看一个简单的案例
+        
+        <ul>
+            <li>aa</li>
+            <li>bb</li>
+        </ul>
+        开始迭代li，循环2次
+        
+        $("li").each(function(index, element) {
+             index 索引 0,1
+             element是对应的li节点 li,li
+             this 指向的是li
+        })
+        这样可以在循环体会做一些逻辑操作了，如果需要提前退出，可以以通过返回 false以便在回调函数内中止循
+    </textarea>
+</body>
+
+</html>

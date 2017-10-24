@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //global代表全局对象  
+        ;(function(global,factory){
+            factory(global);
+        }(typeof window !== "undefined" ? window : this,function(window, noGlobal) {
+            var obj = function(a,b){
+                return new obj.fn.init(a,b);
+            };
+            obj.fn = obj.prototype = {};
+            return obj;
+        }))
+        
+
+
+        //模拟 ajax
+        obj.each(['get','post'],function(index,value){
+            obj[ method ] = function( url, data, callback, type ) {
+                // Shift arguments if data argument was omitted
+                    if ( obj.isFunction( data ) ) {
+                        type     = type || callback;
+                        callback = data;
+                        data     = undefined;
+                    }
+                    return obj.ajax({
+                                            url: url,
+                                            type: method,
+                                            dataType: type,
+                                            data: data,
+                                            success: callback
+                                       });
+            };
+        });
+        
+    </script>
+</body>
+</html>
